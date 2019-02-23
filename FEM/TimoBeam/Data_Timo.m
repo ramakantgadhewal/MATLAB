@@ -1,0 +1,70 @@
+%% ** -- CONCENTRATED MOMENT -- ** %%
+%% SRINT_0
+ N = 1
+INTk = 3.703704e-13 
+INTy = 1.371739e+00 
+Error = 1.371739e+00 
+ N = 2
+INTk = 3.703704e-13 
+INTy = 3.429348e-01 
+Error = 3.429348e-01 
+ N = 4
+INTk = 2.703704e-10 
+INTy = 8.573371e-02 
+Error = 8.573371e-02 
+ N = 8
+INTk = 5.835704e-10 
+INTy = 2.143345e-02 
+Error = 2.143345e-02
+%% SRINT_1
+ N = 1
+INTk = 2.468144e-01 
+INTy = 4.627401e-02 
+Error = 2.930884e-01
+ N = 2
+INTk = 1.025942e-01 
+INTy = 7.694798e-02 
+Error = 1.795422e-01
+ N = 4
+INTk = 1.750336e-02 
+INTy = 5.250996e-02 
+Error = 7.001332e-02 
+ N = 8
+INTk = 1.561735e-03 
+INTy = 1.874026e-02 
+Error = 2.030200e-02
+%% ** -- CONCENTRATED SHEAR FORCE -- ** %%
+%% SRINT_0
+ N = 1
+INTk = 3.086420e-02 
+INTy = 3.431670e-01 
+Error = 3.740312e-01 
+ N = 2
+INTk = 7.716049e-03 
+INTy = 1.074000e-01 
+Error = 1.151161e-01 
+ N = 4
+INTk = 1.929012e-03 
+INTy = 2.836393e-02 
+Error = 3.029294e-02 
+ N = 8
+INTk = 4.822539e-04 
+INTy = 7.347692e-03 
+Error = 7.829946e-03 
+ %% SRINT_1
+ N = 1
+INTk = 9.256697e-02 
+INTy = 1.180073e-02 
+Error = 1.043677e-01  
+ N = 2
+INTk = 3.977673e-02 
+INTy = 2.427754e-02 
+Error = 6.405428e-02
+ N = 4
+INTk = 7.672268e-03 
+INTy = 1.746075e-02 
+Error = 2.513301e-02 
+ N = 8
+INTk = 1.000685e-03 
+INTy = 6.453728e-03 
+Error = 7.454413e-03  
