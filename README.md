@@ -2,6 +2,15 @@
 
 ## Sub-directories
 
-* CFD/FEM/NA: sequently corresponding to the following courses: computational fluid dynamics, finite element method and numerical analysis.
-* OPDE: examples for representative ODE and PDE solvers.
-* Postproc: post processors as well as the other scattered codes.
+* Simulator
+  * `CFD`: computational fluid dynamics,
+  * `FEM`: finite element method,
+  * `FST`: fluid-solid-thermal coupling simulation, including LBM and so on.
+* Algorithm
+  * `NA`: basic numerical algorithms,
+  * `OPDE`: representative ODE and PDE solvers
+* Postproc: post processors as well as the other scattered codes
+  * `PhyXX`: physical experiment
+  * `RwXX`: reaction momentum wheel
+  * `SMXX`: solid mechanics
+  * `SPXX`: solid state physics
