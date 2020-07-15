@@ -1,11 +1,10 @@
 # MATLAB
 
-## Sub-directories
+## Structure
 
 * Simulator
   * `CFD`: computational fluid dynamics,
-  * `FEM`: finite element method,
-  * `FST`: fluid-solid-thermal coupling simulation, including LBM and so on.
+  * `FEM`: finite element method
 * Algorithm
   * `NA`: basic numerical algorithms,
   * `OPDE`: representative ODE and PDE solvers
