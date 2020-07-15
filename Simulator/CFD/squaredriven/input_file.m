@@ -1,56 +1,61 @@
-%% % Input file for CFD05squaredriven2D
-
+%% Input file for CFD05_squaredriven2D
 %% include flags
 include_flags;
 
 %% domain definition
-x1 = 0;
-x2 = 1;
-y1 = 0;
-y2 = 1;
+% - cfl = uMag*dt/ds = dt/ds
+% - sgm = dt/Re/ds/ds
+% - ds = min(dx,dy)
+%  from sgm < 1/2 ==> dt < Re*ds*ds/2 ... (1)
+%  from cfl^2 < 2*sgm ==> dt < 2/Re   ... (2)
+% (1),(2) ==> dt = cap*min(Re*ds*ds/2,2/Re), cap<1
+Re = 10000;
+cap = 2;
 Nx = 128;
 Ny = 128;
-dx = (x2-x1)/Nx;
-dy = (y2-y1)/Ny;
-CFL = 0.1;
-                % CFL number determining the time-propelling step length
-dt = CFL * min(dx,dy);
-                % uv_max = 1;
-Re = 1000;
-                % Re number of the problem
-                % Re := U*L/nu
-                %   L = 0.1 m, nu = 1e-6 m2/s.
+
+% output parameters
+outputName = 'CFDtest_Re10000_FTCS';
+outputInt = 200;
+
+% iteration parameters
+nIter_max = 1e6;
+err_uMag_thre = 1e-6;
+err_psf_thre  = 1e-6;
+
+% algorithm parameters
+ind_ps2omg = 1;
+                % 1: 2-order center scheme
+                % 2: 3-order scheme
+ind_uv2omg = 1;
+                % 1: FTCS scheme
+                % 2: 1-order upwind scheme
+                % 3: 2-order upwind scheme
+ind_psifun = 1;
+                % 1: Gauss-Seidel scheme
+ind_ps2uv = 1;
+                % 1: 2-order center scheme
+                % 2: 3-order scheme
+
+% derived quantities
+uMag = 1;          % non-dim
+lMag = 1;          % non-dim
+Lx = lMag;
+Ly = lMag;
+dx = Lx/Nx;
+dy = Ly/Ny;
+ds = min(dx,dy);
+dt = cap * min(Re*ds*ds/2,2/Re);
 
 %% Initialization
-x = x1:dx:x2;
-y = y1:dy:y2;
-u = zeros(Nx+1,Nx+1);   % x-velocity
-v = zeros(Nx+1,Nx+1);   % y-velocity
-w = zeros(Nx+1,Nx+1);   % vorticity
-pf = zeros(Nx+1,Nx+1);  % stream function
+x = 0:dx:Lx;
+y = 0:dy:Ly;
+U = zeros(Nx+1,Ny+1);     % x-velocity
+V = zeros(Nx+1,Ny+1);     % y-velocity
+ix = 2:Nx;
+iy = 2:Ny;
+inx = 3:Nx-1;
+iny = 3:Ny-1;
 
 %% Boundary condition
-u(:,1)    = 0;
-u(2:Nx,Nx+1) = 1;
-u(1,:)    = 0;
-u(Nx+1,:) = 0;
-v(:,1)    = 0;
-v(:,Nx+1) = 0;
-v(1,:)    = 0;
-v(Nx+1,:) = 0;
-pf(:,1)    = 0;
-pf(:,Nx+1) = 0;
-pf(1,:)    = 0;
-pf(Nx+1,:) = 0;
-
-%% Iteration and p-calculation parameters
-err_steady_sup = 1.17e-1;
-err_steady = 0;
-err_pfConv_sup = 1e-6;
-err_pfConv = 0;
-cal_p_flag = 0;
-UVmax_flag = 0;
-ind = 3;
-                % ind = 1: 1-order upwind scheme
-                % ind = 2: 2-order upwind scheme
-                % ind = 3: FTCS scheme
+U(2:Nx,Ny+1) = uMag;

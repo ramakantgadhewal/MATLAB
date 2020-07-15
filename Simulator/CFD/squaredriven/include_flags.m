@@ -1,4 +1,5 @@
 %% Include flags in CFD05_squaredriven2D
-global Nx Ny dx dy x y dt
-global CFL Re
-global ind err_steady_sup err_pfConv_sup
+global CFL Re Nx Ny dx dy dt uMag
+global ix iy inx iny
+global ind_ps2omg ind_uv2omg ind_psifun ind_ps2uv
+global err_uMag_thre err_psf_thre nIter_max outputInt
