@@ -1,6 +1,6 @@
-function [x,y] = main
-    include_flags;
-    input_file;
+function [x,y] = CFD03_gridgene2D
+    include_flags_CFD03;
+    input_file_CFD03;
     
     [x,y]=initialization;
     

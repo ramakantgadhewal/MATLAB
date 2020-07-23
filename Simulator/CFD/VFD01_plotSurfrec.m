@@ -1,17 +1,17 @@
-function [dtheta] = VFD01_plotsurf_rec(a,b,n,N)
-% -------------输入变量-------------
-%   a   接触角
-%   b   无量纲量 b:=rho*g*L^2/gamma
-%    其中，
-%     密度         rho  1000(水) 
-%     重力加速度    g    9.8
-%     特征长度      L    0.001
-%     表面张力系数 gamma 0.0728(水-空气)
+function [dtheta] = VFD01_plotSurfrec(a,b,n,N)
+% ------------- input -------------
+%   a   contact angle
+%   b   non-dim b:=rho*g*L^2/gamma
+%    in which,
+%     density        rho   1000 (water) 
+%     gravity        g     9.8
+%     char length    L     0.001
+%     surface tens   gamma 0.0728 (water-air)
 %   n   Plot footstep length
 %   N   Verification footstep length
-% -------------输出变量-------------
-%   dtheta  接触角误差
-% ---------------end---------------
+% ------------- output ------------
+%   dtheta  error of contact angle
+% -------------- end --------------
 global const alpha sigma
 alpha = a;
 sigma = b;

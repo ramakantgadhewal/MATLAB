@@ -1,8 +1,8 @@
-function CFD02_FDM1D
+function CFD01_heat1D
 % 1D heat transfer equation solver using FDM
 %% include the global flags and input the data
- include_flags_CFD02_FDM1D;
- input_file_CFD02_FDM1D;
+ include_flags_CFD01_heat1D;
+ input_file_CFD01_heat1D;
 
 %% discrete the solution domain
 % the discrete variable

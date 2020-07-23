@@ -1,9 +1,9 @@
-function [b_origin, b_opt, k0_origin, k0_opt] = CFD03_FDM1D
+function [b_origin, b_opt, k0_origin, k0_opt] = CFD02_wave1D
 % 1st-order 1D wave equation solver using FDM
 
 %% include the global flags and input the data
- include_flags_CFD03_FDM;
- input_file_CFD03_FDM;
+ include_flags_CFD02;
+ input_file_CFD02;
 
 %% discrete the solution domain
 % the discrete variable

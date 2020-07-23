@@ -1,5 +1,5 @@
 %% input the domain of the 1D shockwave problem
-include_flags;
+include_flags_CFD04;
 
 %% Flags marking the discrete scheme
 %   Rusanov:            1

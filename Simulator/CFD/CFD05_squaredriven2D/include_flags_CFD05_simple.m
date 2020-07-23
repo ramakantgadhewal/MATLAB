@@ -1,4 +1,4 @@
-%% Include flags in CFD05_squaredriven2D
+%% Include flags in CFD05_incompr2D_simple
 global CFL Re Nx Ny dx dy dt uMag
 global ix iy inx iny
 global ind_ps2omg ind_uv2omg ind_psifun ind_ps2uv

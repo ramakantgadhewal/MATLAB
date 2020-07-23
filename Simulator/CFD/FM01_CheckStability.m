@@ -1,12 +1,12 @@
-function FM01_CheckStability(b,d1,d2,n)
-% ������ճ�����±߽���������ȶ��ԣ�
-%        { 2by,               0 <= y <= 1/2 (��) 
-% U(y) = { 2(1-b)y+2b-1,     1/2 < y <= 1   (��)
-%        { 1,                      y > 1    (��)
-% ����˵����
-%   d1��d2       ����˵�
-%   n            ��ͼ�ڵ���
-%   b            ����������b<0.5��Ӧ�йյ��ٶ����棬b>0.5��Ӧ�޹յ��ٶ����棩
+function FM01_checkStability(b,d1,d2,n)
+% 分析无粘近似下边界层流动的稳定性：
+%        { 2by,               0 <= y <= 1/2 (Ⅰ) 
+% U(y) = { 2(1-b)y+2b-1,     1/2 < y <= 1   (Ⅱ)
+%        { 1,                      y > 1    (Ⅲ)
+% 参数说明：
+%   d1、d2       区间端点
+%   n            作图节点数
+%   b            待定参数（b<0.5对应有拐点速度剖面，b>0.5对应无拐点速度剖面）
 l   = length(b);
 a   = zeros(n,1);
 a0  =    0;
@@ -43,7 +43,7 @@ legend([p],...
     ['b(1) = ',num2str(b(1))], ...
     ['b(2) = ',num2str(b(2))]);
 % legend([p(1),p(2)],['b(1) = ',num2str(b(1))],['b(2) = ',num2str(b(2))]);
-title({'��άƽ��߽�������ȶ���';'(Note.sym>0Ϊ�ȶ�����)'});
+title({'二维平板边界层线性稳定性';'(Note.sym>0为稳定区间)'});
 xlabel('\alpha');
 ylabel('sym');
 end

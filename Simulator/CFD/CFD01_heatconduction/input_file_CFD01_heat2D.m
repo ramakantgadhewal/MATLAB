@@ -1,7 +1,7 @@
-%% Input file for CFD02_FDM2D
+%% Input file for CFD01_heat2D
 
 % include the global flags
- include_flags_CFD02_FDM2D;
+ include_flags_CFD01_heat2D;
 
  % input the data
 x1 = 0;             % left endpoints of x

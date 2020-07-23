@@ -1,6 +1,6 @@
-%% Input file for CFD05_squaredriven2D
+%% Input file for CFD05_incompr2D_vorStr
 %% include flags
-include_flags;
+include_flags_CFD05_vorStr;
 
 %% domain definition
 % - cfl = uMag*dt/ds = dt/ds

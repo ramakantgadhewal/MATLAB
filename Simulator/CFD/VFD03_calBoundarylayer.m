@@ -1,4 +1,4 @@
-function VFD03_calbdlayer(X,f20)
+function VFD03_calBoundarylayer(X,f20)
 % Solve the ODE
     options = odeset('RelTol',1e-4,'AbsTol',[1e-4 1e-4 1e-5]);
     [X, Y] = ode45(@bdlayer, [0 X], [0 0 f20], options);

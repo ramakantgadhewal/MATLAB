@@ -1,6 +1,6 @@
-function CFD04_shockwave1D
-include_flags;
-input_file;
+function CFD04_compressible1D
+include_flags_CFD04;
+input_file_CFD04;
 
 %% Call iterators
 if (scheme_flag == 1)

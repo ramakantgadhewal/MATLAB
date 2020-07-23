@@ -1,4 +1,4 @@
-function test_FTCS_GS
+function test_vorStr_FTCS_GS
 %% FTCS, Gauss-Seidel
   % domain definition
   CFL = 0.1;     
