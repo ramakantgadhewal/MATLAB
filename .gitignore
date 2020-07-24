@@ -1,8 +1,6 @@
 .vscode
-*build
-temp
-*.asv
-*.fig
 *.xls
 *.xlsx
+*.asv
+*.fig
 *.mat
