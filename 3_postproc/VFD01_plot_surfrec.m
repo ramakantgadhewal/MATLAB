@@ -1,4 +1,4 @@
-function [dtheta] = VFD01_plotSurfrec(a,b,n,N)
+function [dtheta] = VFD01_plot_surfrec(a,b,n,N)
 % ------------- input -------------
 %   a   contact angle
 %   b   non-dim b:=rho*g*L^2/gamma

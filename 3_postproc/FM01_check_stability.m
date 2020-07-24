@@ -1,4 +1,4 @@
-function FM01_checkStability(b,d1,d2,n)
+function FM01_check_stability(b,d1,d2,n)
 % 分析无粘近似下边界层流动的稳定性：
 %        { 2by,               0 <= y <= 1/2 (Ⅰ) 
 % U(y) = { 2(1-b)y+2b-1,     1/2 < y <= 1   (Ⅱ)

@@ -1,4 +1,4 @@
-function VFD02_calSeperatept
+function VFD02_cal_seperate_pt
 dx = 0.0001;
 Nx = 2000;
 x = zeros(Nx+1);

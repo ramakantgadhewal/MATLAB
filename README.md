@@ -6,12 +6,14 @@
 
 * 1_simulator
   * `CFD`: computational fluid dynamics,
-  * `FEM`: finite element method,
-  * `FM`: study on fluid mechanics
+  * `DDS`: differential dynamic system,
+  * `FEM`: finite element method
 * 2_algorithm
   * `NA`: basic numerical algorithms
-* others
+* 3_postproc
+  * `FMXX`: fluid mechanics
   * `PhyXX`: physical experiment
   * `RwXX`: reaction momentum wheel
   * `SMXX`: solid mechanics
   * `SPXX`: solid state physics
+  * `VFDXX`: viscous fluid dynamics
