@@ -1,4 +1,4 @@
-function Self_excited_oscillation
+function FST01_self_excited_oscillation
 clear all;
 close all;
 
@@ -8,10 +8,10 @@ close all;
 
 %% parameters definition
 global h
-% ³õÖµÊýÁ¿
+% ï¿½ï¿½Öµï¿½ï¿½ï¿½ï¿½
 m = 10;
 %rng(100);
-% ³õÖµ·¶Î§
+% ï¿½ï¿½Öµï¿½ï¿½Î§
 xoc = 0; % center location
 yoc = 0;
 roin_init = 0.0;   % inner radius for generation
@@ -20,9 +20,9 @@ phil_init = 0*pi; % lower bound of angle
 phir_init = 2*pi; % upper bound of angle
 xohw_bound = 8;  % half width for visualization
 yohw_bound = 6;
-% µü´ú²½Êý
+% ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 n = 1e4;
-% µü´ú²½³¤
+% ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 h = 1e-5;
 
 %% core iteration

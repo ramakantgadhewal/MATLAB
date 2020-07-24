@@ -1,15 +1,17 @@
 # MATLAB
 
+> Last Updated: July 24, 2020
+
 ## Structure
 
-* simulator
-  * `CFD`: computational fluid dynamics,
-  * `FEM`: finite element method
 * algorithm
   * `NA`: basic numerical algorithms,
   * `OPDE`: representative ODE and PDE solvers
-* postproc: post processors as well as the other scattered codes
+* postproc:
   * `PhyXX`: physical experiment
   * `RwXX`: reaction momentum wheel
   * `SMXX`: solid mechanics
   * `SPXX`: solid state physics
+* simulator
+  * `CFD`: computational fluid dynamics,
+  * `FEM`: finite element method
