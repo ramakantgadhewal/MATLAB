@@ -4,14 +4,14 @@
 
 ## Structure
 
+* simulator
+  * `CFD`: computational fluid dynamics,
+  * `FEM`: finite element method,
+  * `FM`: study on fluid mechanics
 * algorithm
-  * `NA`: basic numerical algorithms,
-  * `OPDE`: representative ODE and PDE solvers
-* postproc:
+  * `NA`: basic numerical algorithms
+* postproc
   * `PhyXX`: physical experiment
   * `RwXX`: reaction momentum wheel
   * `SMXX`: solid mechanics
   * `SPXX`: solid state physics
-* simulator
-  * `CFD`: computational fluid dynamics,
-  * `FEM`: finite element method
