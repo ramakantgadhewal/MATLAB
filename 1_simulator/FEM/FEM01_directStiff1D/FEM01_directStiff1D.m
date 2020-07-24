@@ -1,4 +1,4 @@
-function [K,u,r] = FEM01_1D(m,n,p,k,F,L0)
+function [K,u,r] = FEM01_directStiff1D(m,n,p,k,F,L0)
 %-------变量说明-------%
 %   m   单元数         %
 %   n   系统节点数     %
