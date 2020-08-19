@@ -1,20 +1,17 @@
 function interp_spline(a,b,n)
-% 等距三次样条插值主程序
-% 功能：A.插值节点赋值[subroutine f(x)]
-%       B.节点补充条件[subroutine coffi(y,n)]
-%       C.描点作图[subroutine spline(t,x,y,n)]
+% Equidistant cubic spline interpolation
 
-% A
+% assign the interpolation points
 x = zeros(n+1,1);
 y = zeros(n+1,1);
 for j = 1:1:(n+1)
     x(j) = a + (b-a)*(j-1)/n;
     y(j) = f(x(j));
 end
-% B
+% supplementary conditions at nodes
 global m;
 m = coffi(y,n);
-% C
+% plot the figure
 N = 10 * n;
 x_0 = zeros(N+1);
 F = zeros(N+1);
@@ -31,19 +28,19 @@ end
 
 
 function [y] = f(x)
-% 被插值函数
+% function to be interpolated
 y = 1/(1+25*x^2);
 end
 
 
 function [m] = coffi(y,n)
-% 求取补充条件：样条函数节点处一阶导数值（自然边界条件）
-% subsubroutine:followup(A,g)
+% supplementary conditions at nodes
+% - derivatives of spline functions (natural boundary conditions)
 
 a = zeros(n,1); % save lambda_1 to n
 b = zeros(n,1); % save mu_0 to n-1
-c = zeros(n+1,1); % save 非对角系数
-g = zeros(n+1,1); % save 右端向量
+c = zeros(n+1,1); % save non-diagonal elements
+g = zeros(n+1,1); % save RHS vector
 a(:) = 1/2;
 b(:) = 1/2;
 c(:) = 2;
@@ -61,8 +58,9 @@ A3 = diag(a,-1);
 A = A1 + A2 + A3;
 m = followup(A,g);
 end
+
 function [x] = followup(A,g)
-% 追赶法求解严格三对角
+% follow-up method to solve Ax = b (A is the diagonally dominant tridiagonal matrix)
 
 n = length(g) - 1;
 x = zeros(n+1,1);
@@ -81,9 +79,7 @@ end
 
 
 function [l] = spline(t,x,y,n)
-% 三次样条插值函数
-% subsubroutine:alpha(t,x,k,n),beta(t,x,k,n)
-
+% cubic spline interpolation function
 global m;
 for k = 1:1:(n+1)
     y(k) = y(k) * alpha(t,x,k,n)+ m(k) * beta(t,x,k,n);
@@ -91,7 +87,7 @@ end
 l = sum(y);
 end
 function [p] = alpha(t,x,k,n)
-% 分段Hermite插值基Ⅰ
+% piecewise Hermite basis I
 p = 0;
 if (k == 1) && (t <= x(2))
     p = (1 + 2*(t-x(1))/(x(2)-x(1)))*((t-x(2))/(x(1)-x(2)))^2;
@@ -110,7 +106,7 @@ if (k >= 2) && (k <= n)
 end
 end
 function [p] = beta(t,x,k,n)
-% 分段Hermite插值基Ⅱ
+% piecewise Hermite basis II
 p = 0;
 if (k == 1) && (t <= x(2))
     p = (t-x(1))*((t-x(2))/(x(1)-x(2)))^2;

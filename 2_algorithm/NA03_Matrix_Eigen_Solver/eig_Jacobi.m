@@ -1,7 +1,7 @@
 function eig_Jacobi(n,ubound,eps)
-% n   ÎªÊäÈë¾ØÕóµÄÎ¬Êı.
-% ubound Îª·Ç¶Ô½ÇÔªµÄÉÏ½ç.
-% err Îª¶Ô½ÇÔª¼´ÌØÕ÷ÖµÒªÇóµÄ¾«¶È.
+% n: dimension of the matrix.
+% ubound: upper bound of the non-diagonal
+% err: precision of the diagonals (i.e. eigenvalue)
 global A
 A = zeros(n);
 E = A;
@@ -13,9 +13,9 @@ A(n,n) = 2;
 A = A + E + E';
 delta = ((2*(n-1))^0.5)/n;
 err = 2*eps;
-% sum  ÎªÊä³ö·Ç¶Ô½ÇÔªµÄÆ½·½ºÍ.
-% lamdaÎªÊä³öÌØÕ÷ÖµÁĞÕó.
-% tic  Îª×îÖÕÉ¨Ãè´ÎÊı.
+% sum: sum of squares of the no-diagonal
+% lamda: eigenvalue matrix
+% tic: times of iteration
 sum = 0;
 lamda = zeros(n,1);
 tic = 0;
@@ -39,7 +39,7 @@ while (delta > ubound) || (err > eps)
    end
    tic = tic + 1;
    if tic > 1e+2
-       error('¿ÉÄÜ³ö´í£¡');
+       error('å¯èƒ½å‡ºé”™ï¼');
    end
 end
 for i=1:1:n
@@ -60,7 +60,7 @@ end
 function Givens(n,k,l)
 global A
 B = A;
-m = 10^(-10);                           % m Îª½üËÆ¼ÆËãµÄÔ¤ÖÃãĞÖµ.   
+m = 10^(-10);                           % m is the threhold  
 if B(k,k)==B(l,l)
     A(k,k) = B(k,k)/2 + B(k,l) + B(l,l)/2;
     A(l,l) = B(k,k)/2 - B(k,l) + B(l,l)/2;

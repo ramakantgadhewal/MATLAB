@@ -18,7 +18,7 @@ while err > eps
     err = norm(l-l1,inf);
     tic = tic + 1;
     if tic > 1e+4
-        error('¿ÉÄÜ³ö´í£¡');
+        error('å¯èƒ½å‡ºé”™ï¼');
     end
 end
 l

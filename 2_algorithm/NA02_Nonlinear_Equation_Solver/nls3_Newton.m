@@ -12,7 +12,7 @@ while abs(x1 - x) > eps
     a(n) = x;
     a(n)
     if n > M
-        error('迭代可能不收敛！');
+        error('杩唬鍙兘涓嶆敹鏁涳紒');
     end
 end
 end

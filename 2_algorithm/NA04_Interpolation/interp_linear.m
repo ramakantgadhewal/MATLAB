@@ -1,13 +1,14 @@
 function interp_linear(a,b,n)
-% 分段线性插值主程序
-% 插值节点赋值
+% Piecewise linear interpolation
+
+% assign the interpolation points
 x = zeros(n+1,1);
 y = zeros(n+1,1);
 for j = 1:1:(n+1)
     x(j) = a + (b-a)*(j-1)/n;
     y(j) = f(x(j));
 end
-% 描点作图
+% plot the figure
 N = 10 * n;
 x_0 = zeros(N+1);
 F = zeros(N+1);
@@ -24,13 +25,13 @@ end
 
 
 function [y] = f(x)
-%被插值函数
+% function to be interpolated
 y = 1/(1+25*x^2);
 end
 
 
 function [l] = linear(t,x,y,n)
-% 线性插值函数
+% linear interpolation function
 for k = 1:1:(n+1)
     y(k) = y(k) * phi(t,x,k,n);
 end
@@ -38,7 +39,7 @@ l = sum(y);
 end
 
 function [p] = phi(t,x,k,n)
-% 线性插值基
+% linear basis
 p = 0;
 if (k == 1) && (t <= x(2))
     p = (t-x(2))/(x(1)-x(2));

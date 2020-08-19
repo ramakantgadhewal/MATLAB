@@ -15,7 +15,7 @@ for n =6:1:m
         end
     end
     b = H * x_0;
-% 无预处理
+% without preprocessing
     r1 = b-H*x0;
     p1 = r1;
     d  = dot(r1,r1)/dot(p1,H*p1);
@@ -38,7 +38,7 @@ for n =6:1:m
     d  = dot(r1,r1)/dot(p1,H*p1);
     x  = x+d*p2;
     err1 = norm(x-x_0);
-% 有预处理
+% with preprocessing
     F = zeros(n);
     for i=1:n
         F(i,i) = sqrt(2*i-1);
@@ -72,7 +72,7 @@ for n =6:1:m
     M(n,1)=n/m;
 end
 plot(M,T);
-xlabel('方程组阶数m /实验最高阶数n');
-ylabel('ln(较大误差/较小误差)');
+xlabel('鏂圭▼缁勯樁鏁癿 /瀹為獙鏈�楂橀樁鏁皀');
+ylabel('ln(杈冨ぇ璇樊/杈冨皬璇樊)');
 end
 

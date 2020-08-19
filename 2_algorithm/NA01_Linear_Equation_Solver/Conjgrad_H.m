@@ -1,6 +1,5 @@
-function Congrad_H(n,eps)
+function Conjgrad_H(n,eps)
 H = ones(n);
-L = zeros(n);
 x_0 = ones(n,1);
 x0  = zeros(n,1);
 for i=1:1:n
@@ -9,7 +8,7 @@ for i=1:1:n
     end
 end
 b = H * x_0;
-% 无预处理
+% without preprocessing
 if nargin == 1
     eps = 1.0e-8;
 end
@@ -36,7 +35,7 @@ d  = dot(r1,r1)/dot(p1,H*p1);
 x  = x+d*p2;
 n_1
 err1 = norm(x-x_0)
-% 有预处理
+% with preprocessing
 F = zeros(n);
 for i=1:n
     F(i,i) = sqrt(2*i-1);
