@@ -17,3 +17,6 @@
   * `SMXX`: solid mechanics
   * `SPXX`: solid state physics
   * `VFDXX`: viscous fluid dynamics
+* 4_features
+  * `mex`: MATLAB-C/C++ mixed programming
+  * `OOP`: MATLAB object-oriented programming
