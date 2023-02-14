@@ -19,8 +19,8 @@ if nargin < 2
   delx0 = [1e-2 1e-2 1e-2];
 end
 if nargin < 4
-  ns = 2^20;
-  fn = 2^14;
+  ns = 2^10;
+  fn = 2^8;
 end
 dt = 1/fn;    % time step
 % set global variables
@@ -72,19 +72,20 @@ end
 function [dx,dy,dz] = dxdt_Lorenz3(x,y,z,h)
 
 K1 = f31(x,y,z);
-K2 = f31(x + h*K1/2,y + h*K1/2,z + h*K1/2);
-K3 = f31(x + h*K2/2,y + h*K2/2,z + h*K2/2);
-K4 = f31(x + h*K3,y + h*K3, z + h*K3);
-
 L1 = f32(x,y,z);
-L2 = f32(x + h*L1/2,y + h*L1/2,z + h*L1/2);
-L3 = f32(x + h*L2/2,y + h*L2/2,z + h*L2/2);
-L4 = f32(x + h*L3,y + h*L3, z + h*L3);
-
 M1 = f33(x,y,z);
-M2 = f33(x + h*M1/2,y + h*M1/2,z + h*M1/2);
-M3 = f33(x + h*M2/2,y + h*M2/2,z + h*M2/2);
-M4 = f33(x + h*M3,y + h*M3, z + h*M3);
+
+K2 = f31(x + h*K1/2,y + h*L1/2,z + h*M1/2);
+L2 = f32(x + h*K1/2,y + h*L1/2,z + h*M1/2);
+M2 = f33(x + h*K1/2,y + h*L1/2,z + h*M1/2);
+
+K3 = f31(x + h*K2/2,y + h*L2/2,z + h*M2/2);
+L3 = f32(x + h*K2/2,y + h*L2/2,z + h*M2/2);
+M3 = f33(x + h*K2/2,y + h*L2/2,z + h*M2/2);
+
+K4 = f31(x + h*K3,y + h*L3, z + h*M3);
+L4 = f32(x + h*K3,y + h*L3, z + h*M3);
+M4 = f33(x + h*K3,y + h*L3, z + h*M3);
 
 dx = (K1 + 2*K2 + 2*K3 + K4)*h/6;
 dy = (L1 + 2*L2 + 2*L3 + L4)*h/6;

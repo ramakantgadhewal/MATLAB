@@ -1,8 +1,20 @@
 function CFD01_heat1D
 % 1D heat transfer equation solver using FDM
-%% include the global flags and input the data
- include_flags_CFD01_heat1D;
- input_file_CFD01_heat1D;
+% input the data
+x1 = 0;             % left endpoints of x
+x2 = 1;             % right endpoints of x
+gamma_0 = 1;
+                    % heat transfer coefficient
+sigma_0 = 1.0;
+                    % the characteristic footstep:sigma = gamma *dt/dx2
+Nx = 500;
+                    % the number of x mesh points
+T  = [0, 125, 250, 375, 500, 750, 1000];
+                    % the ordinal number of interesting time points
+                    % requirement: monotone increasing
+Nt = max(T);        % the number of t mesh points
+ind = 2;
+                    % the index of the solver: 1 for FTCS, 2 for BTCS-dir
 
 %% discrete the solution domain
 % the discrete variable
@@ -69,7 +81,7 @@ for i = 1:leng_T
     hold on;
 end
 %% write to the workspace
-TIME = sigma_0/(Nx^2)*T
+TIME = sigma_0/(Nx^2)*T;
 end
 
 function [f] = IC(x)
@@ -91,39 +103,4 @@ function [bd_l,bd_r] = BC(t)
 % unsteady
 bd_l = 0;
 bd_r = 2 + sin(pi*500*t);
-end
-
-function x = followup(A,b)
-% Thomas solver of the linear algebraic equation Ax = b,
-%       where Q is a tri-diagonal matrix.
-%   Sometimes, the scale of A is too big for internal 
-%       storage. Under this circumstance, A is required
-%       to be stored as a built-in matrix.
-n = rank(A);
-for i = 1:n
-    if(A(i,i)==0)
-        disp('Error: There is a diagonal element valued zero!');
-        return;
-    end
-end
-d = ones(n,1);
-a = ones(n-1,1);
-c = ones(n-1);
-for i = 1:n-1
-    a(i,1) = A(i+1,i  );
-    c(i,1) = A(i  ,i+1);
-    d(i,1) = A(i  ,i  );
-end
-d(n,1) = A(n,n);
-% solve Ly = b
-for i = 2:n
-    ad = a(i-1,1)/d(i-1,1);
-    d(i,1) = d(i,1) - ad*c(i-1,1);
-    b(i,1) = b(i,1) - ad*b(i-1,1);
-end
-% solve Ux = y
-x(n,1) = b(n,1)/d(n,1);
-for i = (n-1):(-1):1
-    x(i,1) = (b(i,1)-c(i,1)*x(i+1,1))/d(i,1);
-end
 end
